@@ -1,39 +1,60 @@
-import React from 'react';
-import { Sun, Moon, Github } from 'lucide-react';
+import { Mountain } from 'lucide-react';
 
-export default function Header({ isDarkMode, setIsDarkMode, themeClasses }) {
+export default function Header({ darkMode, setDarkMode, searchTerm, setSearchTerm, inputBgClass }) {
   return (
-    <header className={`flex flex-col md:flex-row justify-between items-center gap-4 p-5 rounded-3xl border shadow-xl backdrop-blur-md transition-colors duration-500 ${themeClasses.cardBg}`}>
+    <nav className={`p-4 border-b flex justify-between items-center backdrop-blur-md sticky top-0 z-50 
+        ${darkMode ? 'border-dark-border bg-black/80' : 'border-light-border bg-white/70'}`}>
+
       <div className="flex items-center gap-3">
-        <Sun className="text-yellow-400 drop-shadow-lg" size={32} />
-        <h1 className={`text-2xl md:text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r ${themeClasses.gradientText}`}>
-          Hava Durumu Tahmini
+        <div className="relative">
+          <Mountain className="text-volcano-red animate-pulse-slow" size={40} strokeWidth={2} />
+          <div className="absolute -top-1 right-[35%] w-2 h-2 bg-volcano-orange rounded-full animate-ping"></div>
+        </div>
+        <h1 className={`text-3xl font-black tracking-widest ${darkMode ? 'text-white' : 'text-stone-800'}`}>
+          VOLCANOS <span className="text-volcano-orange text-base font-black px-2.5 py-0.5 border-2 border-volcano-orange rounded-md tracking-wider ml-1">
+            SIMULATOR
+          </span>
         </h1>
       </div>
 
+      {/* Sağ Kısım: Arama, Tema ve TUIEVOLUTION */}
       <div className="flex items-center gap-6">
-        <div 
-          className={`flex items-center gap-2 p-1 rounded-full cursor-pointer border transition-colors ${isDarkMode ? 'bg-[#040d1f] border-blue-500/30' : 'bg-blue-100 border-blue-300'}`}
-          onClick={() => setIsDarkMode(!isDarkMode)}
+        {/* Arama Çubuğu */}
+        <input
+          type="text"
+          placeholder="Yanardağ Ara (İsim veya Ülke)..."
+          className={`px-3 py-1 rounded border focus:outline-none focus:ring-2 focus:ring-volcano-orange w-64 transition-all ${inputBgClass}`}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          value={searchTerm}
+        />
+
+        {/* Tema Değiştirme Butonu */}
+        <button
+          onClick={() => setDarkMode(!darkMode)}
+          className={`text-sm border px-4 py-1 rounded font-bold transition-all transform hover:scale-105
+            ${darkMode
+              ? 'border-volcano-orange text-volcano-orange bg-black hover:bg-volcano-orange hover:text-white'
+              : 'border-volcano-red text-white bg-volcano-red hover:bg-red-700 shadow-md'}`}>
+          {darkMode ? 'Mod: 🔥 MAGMA' : 'Mod: 🌸 FUJI'}
+        </button>
+
+        <a
+          href="https://tuievolution.vercel.app/"
+          target="_blank"
+          rel="noreferrer"
+          className="tracking-tighter hover:scale-105 transition-transform duration-300 ml-4"
         >
-          <div className={`p-1.5 rounded-full transition-all ${!isDarkMode ? 'bg-white text-yellow-500 shadow-sm' : 'text-gray-400'}`}>
-            <Sun size={16} />
-          </div>
-          <div className={`p-1.5 rounded-full transition-all ${isDarkMode ? 'bg-blue-500 text-white shadow-lg' : 'text-blue-300'}`}>
-            <Moon size={16} />
-          </div>
-        </div>
-
-        <a href="https://github.com/tuanaakyildiz/TuiEvolution_Weather_Report" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
-          <Github size={26} className={isDarkMode ? "text-white" : "text-[#1e3a8a]"} />
-        </a>
-
-        <a href="https://tuievolution.vercel.app/" target="_blank" rel="noreferrer">
-          <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-400 hover:scale-105 transition-transform cursor-pointer">
-            TUIEVOLUTION
-          </h1>
+          <h2 className="text-3xl font-[1000] uppercase leading-none">
+            <span className={`bg-clip-text text-transparent bg-gradient-to-r 
+      ${darkMode
+                ? 'from-volcano-red via-volcano-orange to-yellow-500'
+                : 'from-red-800 via-volcano-red to-volcano-orange'} 
+      drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]`}>
+              TUIEVOLUTION
+            </span>
+          </h2>
         </a>
       </div>
-    </header>
+    </nav>
   );
 }
