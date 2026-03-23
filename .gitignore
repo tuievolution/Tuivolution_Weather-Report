@@ -12,3 +12,4 @@ frontend/env
 .env/
 backend/env
 front/env
+env
