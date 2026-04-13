@@ -39,7 +39,12 @@ def get_training_data():
         {"temp": 15.0, "humidity": 50.0, "wind": 2.0, "clouds": 10, "pressure": 1020.0, "weather_main": "Clear"},
         {"temp": 35.0, "humidity": 20.0, "wind": 1.0, "clouds": 0, "pressure": 1010.0, "weather_main": "Clear"},
         
-        # CLOUDS (BULUTLU) - Bulutluluk yüksek, nem orta/yüksek
+        # PARTLY CLOUDY (PARÇALI BULUTLU) - İNCE AYAR EKLENDİ (Bulutluluk az/orta)
+        {"temp": 22.0, "humidity": 45.0, "wind": 4.0, "clouds": 25, "pressure": 1013.0, "weather_main": "Partly Cloudy"},
+        {"temp": 18.0, "humidity": 55.0, "wind": 5.0, "clouds": 40, "pressure": 1010.0, "weather_main": "Partly Cloudy"},
+        {"temp": 26.0, "humidity": 50.0, "wind": 3.0, "clouds": 30, "pressure": 1014.0, "weather_main": "Partly Cloudy"},
+
+        # CLOUDS (KAPALI/ÇOK BULUTLU) - Bulutluluk yüksek, nem orta/yüksek
         {"temp": 18.0, "humidity": 65.0, "wind": 4.0, "clouds": 80, "pressure": 1008.0, "weather_main": "Clouds"},
         {"temp": 12.0, "humidity": 75.0, "wind": 6.0, "clouds": 100, "pressure": 1005.0, "weather_main": "Clouds"},
         {"temp": 22.0, "humidity": 60.0, "wind": 3.0, "clouds": 60, "pressure": 1011.0, "weather_main": "Clouds"},

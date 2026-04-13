@@ -22,7 +22,8 @@ export default function Forecast({ forecastData, themeClasses, isDarkMode, forma
                   <span className={`text-sm font-bold mb-1 opacity-80 ${themeClasses.subText}`}>{dayNum}</span>
                   <span className="font-extrabold mb-5 text-center text-lg">{dayName}</span>
                   
-                  <WeatherIcon condition={day.weather[0].main} size={56} />
+                  {/* İNCE AYAR: iconCode prop'u gönderildi */}
+                  <WeatherIcon condition={day.weather[0].main} iconCode={day.weather[0].icon} size={56} />
                   
                   <span className={`text-sm mt-4 font-medium capitalize text-center h-10 flex items-center ${themeClasses.subText}`}>
                     {day.weather[0].description}

@@ -35,7 +35,8 @@ export default function CurrentWeather({
           </h3>
 
           <div className="flex items-center gap-5">
-            <WeatherIcon condition={weatherData.weatherMain} size={80} />
+            {/* İNCE AYAR: iconCode gönderildi */}
+            <WeatherIcon condition={weatherData.weatherMain} iconCode={weatherData.iconCode} size={80} />
             <div>
               <span className="text-7xl font-light tracking-tighter">
                 {formatTemp(weatherData.temp)}°

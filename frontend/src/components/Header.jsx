@@ -24,7 +24,7 @@ export default function Header({ isDarkMode, setIsDarkMode, themeClasses }) {
           </div>
         </div>
 
-        <a href="https://github.com/tuanaakyildiz/TuiEvolution_Weather_Report" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
+        <a href="https://github.com/tuievolution/Tuivolution_Weather-Report" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
           <Github size={26} className={isDarkMode ? "text-white" : "text-[#1e3a8a]"} />
         </a>
 
